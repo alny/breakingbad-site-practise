@@ -4,9 +4,20 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+var dbURL = 'mongodb://localhost/breakingbad'
+mongoose.connect(dbURL, function(err, res){
+if(err){
+  console.log('CONNECTION FALIED')
+}else {
+  console.log('CONNECTION SUCCESS'+dbURL)
+}
+
+});
 
 var app = express();
 
