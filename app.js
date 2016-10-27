@@ -14,7 +14,7 @@ mongoose.connect(dbURL, function(err, res){
 if(err){
   console.log('CONNECTION FALIED')
 }else {
-  console.log('CONNECTION SUCCESS'+dbURL)
+  console.log('CONNECTION SUCCESS: '+dbURL)
 }
 
 });

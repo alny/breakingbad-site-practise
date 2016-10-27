@@ -2,7 +2,7 @@
   var router = express.Router();
   var Post = require('../models/posts');
 
-  var path = ['index', 'createpost']
+  var path = ['index', 'createpost', 'post']
 
   // var fanArt = [
   //
@@ -22,52 +22,83 @@
   //
   // ]
 
-        /* GET home page. */
-        router.get('/', function(req, res, next) {
+  /* GET home page. */
+  router.get('/', function(req, res, next) {
 
-          Post.find(null, function(err, posts){
-            if(err){
-              res.render('error', {message: 'Page not Found'})
+      Post.find(null, function(err, posts) {
+          if (err) {
+              res.render('error', {
+                  message: 'Page not Found'
+              })
               return
-            }
-            var data = {
-                    Art: posts
-                }
-              res.render('index', data)
+          }
+          var data = {
+              Art: posts
+          }
+          res.render('index', data)
 
+      })
+
+  });
+
+  router.get('/:page', function(req, res, next) {
+
+      var page = req.params.page
+      if (path.indexOf(page) == -1) {
+          res.render('error', {
+              message: 'Check your Spellin boooYYY!'
           })
+          return
+        }
 
-        });
+        if(page != 'post'){
 
-        router.get('/:page', function(req, res, next) {
+          res.render(page, null)
+          return
+        }
 
-            var page = req.params.page
-            if (path.indexOf(page) == -1) {
-              res.render('error', {message: 'Check your Spellin boooYYY!'})
-            }
-
-            res.render(page, null)
-
-        });
-
-        router.post('/:page', function(req, res, next){
-
-          var page = req.params.page
-          if (path.indexOf(page) == -1) {
-            res.render('error', {message: 'Check your Spellin boooYYY!'})
+      var id = req.query.id // Id number of Post we want to render
+      Post.findById(id, function(err, post) {
+          if (err) {
+              res.render('error', {
+                  message: 'Page not found'
+              })
+              return
           }
 
-          var post = req.body
-          Post.create(post, function(err, post1){
-            if(err){
-              res.render('error', {message: 'Page not Found'})
-            }
-            res.redirect('/')
+          res.render(page, post)
+
+      })
 
 
+
+  });
+
+  router.post('/:page', function(req, res, next) {
+
+      var page = req.params.page
+      if (path.indexOf(page) == -1) {
+          res.render('error', {
+              message: 'Check your Spellin boooYYY!'
           })
+      }
+
+      var post = req.body
+      Post.create(post, function(err, post1) {
+          if (err) {
+              res.render('error', {
+                  message: 'Page not Found'
+              })
+          }
+          res.redirect('/')
 
 
-        })
+      })
+
+
+
+
+
+  })
 
   module.exports = router;

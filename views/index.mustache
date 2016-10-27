@@ -29,7 +29,7 @@
         <div id="grid-container" class="cbp">
 
           {{#Art}}
-          <div class="cbp-item print"> <a class="cbp-caption fancybox-media" data-rel="portfolio" href="#">
+          <div class="cbp-item print"> <a class="cbp-caption fancybox-media" data-rel="portfolio" href="/post?={{_id}}">
             <div class="cbp-caption-defaultWrap"> <img src="{{image}}" alt="" /></div>
             <div class="cbp-caption-activeWrap">
               <div class="cbp-l-caption-alignCenter">
@@ -41,7 +41,7 @@
             <!--/.cbp-caption-activeWrap -->
             </a>
             <div class="box text-center">
-              <h4 class="post-title"><a href="">{{ name }}</a></h4>
+              <h4 class="post-title"><a href="/post?={{_id}}">{{ name }}</a></h4>
               <span class="meta category"><a href="#" class="link-effect">Episode: {{episode}}</a></span> </div>
             <!--/.box -->
           </div>
