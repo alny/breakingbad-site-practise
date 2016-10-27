@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {{>head}}
+
+</head>
+<body>
+<div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+<div class="body-wrapper">
+
+  {{>nav}}
+
+  <div class="offset"></div>
+  <div class="light-wrapper">
+    <div class="container inner">
+      <div class="headline text-center">
+        <h2>Awesome Breaking Bad Fan Art</h2>
+        <p class="lead">Make sure to check all the pictures</p>
+      </div>
+      <div class="cbp-panel">
+        <div id="filters-container" class="cbp-filter-container text-center">
+          <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> All </div>
+          <div data-filter=".print" class="cbp-filter-item"> Print </div>
+          <div data-filter=".web" class="cbp-filter-item"> Web Design </div>
+          <div data-filter=".logo" class="cbp-filter-item"> Logo </div>
+          <div data-filter=".motion" class="cbp-filter-item"> Motion </div>
+        </div>
+        <div id="grid-container" class="cbp">
+
+          {{#Art}}
+          <div class="cbp-item print"> <a class="cbp-caption fancybox-media" data-rel="portfolio" href="#">
+            <div class="cbp-caption-defaultWrap"> <img src="{{image}}" alt="" /></div>
+            <div class="cbp-caption-activeWrap">
+              <div class="cbp-l-caption-alignCenter">
+                <div class="cbp-l-caption-body">
+                  <div class="cbp-l-caption-title">View Larger</div>
+                </div>
+              </div>
+            </div>
+            <!--/.cbp-caption-activeWrap -->
+            </a>
+            <div class="box text-center">
+              <h4 class="post-title"><a href="">{{ name }}</a></h4>
+              <span class="meta category"><a href="#" class="link-effect">Episode: {{episode}}</a></span> </div>
+            <!--/.box -->
+          </div>
+          {{/Art}}
+          <!--/.cbp-item -->
+
+          </div>
+        <!--/.cbp -->
+
+      </div>
+      <!--/.cbp-panel -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.light-wrapper -->
+
+  <footer class="inverse-wrapper">
+
+      {{>footer}}
+
+  </footer>
+  <!-- /footer -->
+  <div id="share-bar"></div>
+</div>
+<!--/.body-wrapper -->
+
+    {{>javascripts}}
+
+</body>
+</html>

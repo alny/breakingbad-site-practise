@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  {{>head}}
+
+</head>
+<body>
+<div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+<div class="body-wrapper">
+
+  {{>nav}}
+
+  <div class="offset"></div>
+  <div class="light-wrapper">
+    <div class="container inner">
+      <div class="headline text-center">
+        <h2>Create A Breaking Bad Fan Art Post</h2>
+        <p class="lead">Post Your Fanart</p>
+      </div>
+      <div class="cbp-panel">
+
+
+        <!--/.cbp -->
+
+        <form action="/createpost" method="post">
+
+          <input type="text" name="name" value="" placeholder="Name"><br>
+          <input type="text" name="episode" value="" placeholder="Episode"><br>
+          <input type="text" name="image" value="" placeholder="Image"><br>
+          <input type="submit" value="submit" class="btn btn-control"><br>
+
+
+        </form>
+
+      </div>
+      <!--/.cbp-panel -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.light-wrapper -->
+
+
+  <!-- /footer -->
+  <div id="share-bar"></div>
+</div>
+<!--/.body-wrapper -->
+
+    {{>javascripts}}
+
+</body>
+</html>
